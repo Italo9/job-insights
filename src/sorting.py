@@ -23,7 +23,6 @@ def max_salary_key(job):
         return -math.inf
 
 
-# a
 def min_salary_key(job):
     """
     Gets min_salary as a sorting key.
