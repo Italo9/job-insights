@@ -1,9 +1,14 @@
-from jobs import read
+from src.jobs import read
 
 
 def get_unique_job_types(path):
     result = read(path)
-    return set(result["job_type"])
+    filter_job_type = []
+    for row in result:
+        if row["job_type"] not in filter_job_type:
+            filter_job_type.append(row["job_type"])
+
+    return filter_job_type
 
 
 def filter_by_job_type(jobs, job_type):
