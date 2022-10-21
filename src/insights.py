@@ -153,8 +153,8 @@ def matches_salary_range(job, salary):
     """
     if "min_salary" not in job or "max_salary" not in job:
         raise ValueError("Valor fora do intervalo")
-    elif not (isinstance(job["min_salary"], int)) or not (
-        isinstance(job["max_salary"], int) or not isinstance(salary, int)
+    elif not (isinstance(job["min_salary"], int)) or (
+        not isinstance(job["max_salary"], int) or not isinstance(salary, int)
     ):
         raise ValueError("Valores fora do conjunto dos inteiros")
     elif job["min_salary"] > job["max_salary"]:
@@ -180,4 +180,11 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    filter_by_salary = []
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary):
+                filter_by_salary.append(job)
+        except ValueError as Error:
+            print(Error)
+    return filter_by_salary
