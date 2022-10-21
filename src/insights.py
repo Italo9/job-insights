@@ -47,7 +47,7 @@ def get_unique_industries(path):
     result = read(path)
     filter_industry = []
     for row in result:
-        if row["industry"] not in filter_industry and row["industry"] != '':
+        if row["industry"] not in filter_industry and row["industry"] != "":
             filter_industry.append(row["industry"])
     return filter_industry
 
@@ -85,7 +85,15 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
-    pass
+    result = read(path)
+    result_salary_int = []
+    result_salary_max = int
+    for row in result:
+        print(row["max_salary"])
+        if row["max_salary"].isdigit():
+            result_salary_int.append(int(row["max_salary"]))
+            result_salary_max = max(result_salary_int)
+    return result_salary_max
 
 
 def get_min_salary(path):
