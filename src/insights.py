@@ -89,7 +89,6 @@ def get_max_salary(path):
     result_salary_int = []
     result_salary_max = int
     for row in result:
-        print(row["max_salary"])
         if row["max_salary"].isdigit():
             result_salary_int.append(int(row["max_salary"]))
             result_salary_max = max(result_salary_int)
@@ -115,7 +114,6 @@ def get_min_salary(path):
     result_salary_int = []
     result_salary_min = int
     for row in result:
-        print(row["min_salary"])
         if row["min_salary"].isdigit():
             result_salary_int.append(int(row["min_salary"]))
             result_salary_min = min(result_salary_int)
